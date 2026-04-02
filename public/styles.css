@@ -1,0 +1,168 @@
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #1f2a37;
+  --muted: #5d6d7d;
+  --primary: #3165ff;
+  --border: #dce2e8;
+  --success: #1f8a5a;
+  --danger: #c0392b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #eef4ff 0%, #f5f7fb 100%);
+  color: var(--text);
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 3rem);
+}
+
+p {
+  margin: 0;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+  margin-bottom: 18px;
+  box-shadow: 0 18px 50px rgba(31, 42, 55, 0.08);
+}
+
+#categories-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.category-button,
+button,
+input,
+textarea {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font: inherit;
+}
+
+.category-button,
+button {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category-button {
+  background: #eef3ff;
+  color: var(--primary);
+  padding: 10px 14px;
+  border: none;
+}
+
+.category-button:hover,
+button:hover {
+  transform: translateY(-1px);
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  padding: 12px 18px;
+  border: none;
+}
+
+button[type="submit"] {
+  width: 100%;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  margin-top: 14px;
+  font-weight: 600;
+}
+
+.joke-block,
+.joke-card {
+  background: #f8fafd;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(49, 101, 255, 0.12);
+  margin-top: 12px;
+}
+
+.joke-setup {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.joke-delivery {
+  margin: 0;
+  color: var(--muted);
+}
+
+.joke-list {
+  display: grid;
+  gap: 12px;
+}
+
+.response {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 12px;
+}
+
+.response.success {
+  background: #e7f8f0;
+  color: var(--success);
+}
+
+.response.error {
+  background: #fde7e8;
+  color: var(--danger);
+}
+
+.info-text,
+.error-text {
+  margin: 0;
+  color: var(--muted);
+}
+
+.search-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+@media (max-width: 640px) {
+  .search-row {
+    grid-template-columns: 1fr;
+  }
+}

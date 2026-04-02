@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jokebook</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Jokebook</h1>
+      <p>Explore categories, get a random joke, and add your own.</p>
+    </header>
+
+    <section class="card" id="random-card">
+      <h2>Random Joke</h2>
+      <div class="joke-block">
+        <p class="joke-setup" id="random-setup">Loading random joke...</p>
+        <p class="joke-delivery" id="random-delivery"></p>
+      </div>
+      <button id="random-refresh">Show another joke</button>
+    </section>
+
+    <section class="card" id="categories-card">
+      <h2>Categories</h2>
+      <div id="categories-list" class="category-list"></div>
+      <form id="search-form">
+        <label for="search-category">Search Category</label>
+        <div class="search-row">
+          <input id="search-category" name="category" type="text" placeholder="Enter category name" />
+          <button type="submit">Search</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card" id="jokes-card">
+      <h2 id="jokes-title">Category jokes</h2>
+      <div id="jokes-list" class="joke-list"></div>
+    </section>
+
+    <section class="card" id="add-card">
+      <h2>Add a New Joke</h2>
+      <form id="add-joke-form">
+        <label for="new-category">Category</label>
+        <input id="new-category" name="category" type="text" placeholder="funnyJoke or lameJoke" required />
+
+        <label for="new-setup">Setup</label>
+        <textarea id="new-setup" name="setup" rows="3" required></textarea>
+
+        <label for="new-delivery">Delivery</label>
+        <textarea id="new-delivery" name="delivery" rows="3" required></textarea>
+
+        <button type="submit">Add Joke</button>
+      </form>
+      <div id="add-response" class="response"></div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
