@@ -1,23 +1,24 @@
 "use strict";
+require("dotenv").config();
 const express = require("express");
 const app = express();
+const jokebookRoutes = require("./routes/jokebookRoutes");
+const { initializeDatabase } = require("./models/jokebookModel");
 
-const multer = require("multer");
-app.use(multer().none());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
-
-app.set("view engine", "ejs");
-app.set("views", __dirname + "/views");
-
-//const productRoutes = require('./routes/productRoutes');
-//const userRoutes = require('./routes/userRoutes');
-
-//app.use('/products', productRoutes);
-//app.use('/users', userRoutes);
+app.use("/jokebook", jokebookRoutes);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, function () {
-    console.log("Server listening on port: " + PORT + "!");
-});
+
+initializeDatabase()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server listening on port ${PORT}!`);
+    });
+  })
+  .catch((error) => {
+    console.error("Unable to initialize the database:", error);
+    process.exit(1);
+  });
